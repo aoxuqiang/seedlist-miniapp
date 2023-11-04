@@ -1,0 +1,5 @@
+<view class="fix-tab">
+<t-tabs defaultValue="{{0}}" theme="card">
+  <t-tab-panel wx:for-items="{{tabs}}" wx:for-item="tab" wx:key="{{tab.key}}" label="{{tab.name}}" value="{{index}}" />
+</t-tabs>
+</view>
