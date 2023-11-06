@@ -39,12 +39,22 @@ export default class ActionSheet extends SuperComponent {
             type: BooleanConstructor;
             value?: boolean;
         };
+        showOverlay: {
+            type: BooleanConstructor;
+            value?: boolean;
+        };
+        popupProps: {
+            type: ObjectConstructor;
+            value?: object;
+        };
     };
     data: {
         prefix: string;
         classPrefix: string;
         gridThemeItems: any[];
         currentSwiperIndex: number;
+        defaultPopUpProps: {};
+        defaultPopUpzIndex: number;
     };
     controlledProps: {
         key: string;

@@ -37,19 +37,22 @@ export default class Slider extends SuperComponent {
         created(): void;
         attached(): void;
     };
+    toggleA11yTips(): void;
+    renderLine(val: any): void;
     triggerValue(value?: SliderValue): void;
     handlePropsChange(newValue: SliderValue): void;
-    handleMask(marks: any): void;
+    handleMark(marks: any): void;
     setSingleBarWidth(value: number): void;
-    getInitialStyle(): Promise<void>;
+    init(): Promise<void>;
     stepValue(value: number): number;
     onSingleLineTap(e: WechatMiniprogram.TouchEvent): void;
     getSingleChangeValue(e: WechatMiniprogram.TouchEvent): number;
     convertPosToValue(posValue: number, dir: 0 | 1): number;
     onLineTap(e: WechatMiniprogram.TouchEvent): void;
+    onTouchStart(e: WechatMiniprogram.TouchEvent): void;
     onTouchMoveLeft(e: WechatMiniprogram.TouchEvent): void;
     onTouchMoveRight(e: WechatMiniprogram.TouchEvent): void;
     setLineStyle(left: number, right: number): void;
-    onTouchEnd(): void;
+    onTouchEnd(e: WechatMiniprogram.TouchEvent): void;
 }
 export {};

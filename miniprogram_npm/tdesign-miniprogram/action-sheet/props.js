@@ -34,5 +34,13 @@ const props = {
         type: Boolean,
         value: false,
     },
+    showOverlay: {
+        type: Boolean,
+        value: true,
+    },
+    popupProps: {
+        type: Object,
+        value: {},
+    },
 };
 export default props;

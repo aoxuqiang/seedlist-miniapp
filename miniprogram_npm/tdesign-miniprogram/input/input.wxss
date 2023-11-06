@@ -28,6 +28,7 @@
 .t-input {
   background-color: var(--td-input-bg-color, var(--td-bg-color-container, var(--td-font-white-1, #ffffff)));
   display: flex;
+  align-items: center;
   flex: 1;
   padding: var(--td-input-vertical-padding, 32rpx);
 }
@@ -56,6 +57,7 @@
 }
 .t-input--layout-vertical {
   flex-direction: column;
+  align-items: start;
 }
 .t-input__wrap--prefix {
   display: flex;
@@ -65,12 +67,13 @@
   color: var(--td-input-prefix-icon-color, var(--td-font-gray-1, rgba(0, 0, 0, 0.9)));
 }
 .t-input__label:not(:empty) {
-  min-width: 2em;
-  max-width: 5em;
+  min-width: var(--td-input-label-min-width, 2em);
+  max-width: var(--td-input-label-max-width, 5em);
   font-size: var(--td-font-size-m, 32rpx);
   line-height: 48rpx;
   color: var(--td-input-label-text-color, var(--td-font-gray-1, rgba(0, 0, 0, 0.9)));
   margin-right: var(--td-spacer-2, 32rpx);
+  word-wrap: break-word;
 }
 .t-input--layout-vertical .t-input__label:not(:empty) {
   font-size: var(--td-font-size-base, 28rpx);
@@ -79,7 +82,14 @@
 .t-input__icon--prefix:not(:empty) + .t-input__label:not(:empty) {
   padding-left: 8rpx;
 }
+.t-input__label:not(:empty) + .t-input__wrap {
+  margin-left: var(--td-spacer-2, 32rpx);
+}
+.t-input__icon--prefix:not(:empty) + .t-input__label:empty {
+  margin-right: var(--td-spacer-2, 32rpx);
+}
 .t-input__wrap {
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

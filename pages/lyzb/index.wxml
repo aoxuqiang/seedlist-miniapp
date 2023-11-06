@@ -1,0 +1,53 @@
+<scroll-view  scroll-y style="width: 100%; height: 88vh;">
+<!-- 轮播图 -->
+<view class="swiperBox">
+  <t-swiper image-props="{{imageProps}}" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" list="{{swiperList}}" navigation="{{ { type: 'dots-bar' } }}" />
+</view>
+<!-- 分类页签 tab -->
+<t-tabs defaultValue="{{defaultTab}}" theme="card" bindchange='tabChange'>
+  <t-tab-panel wx:for="{{tabList}}" wx:key="index" label="{{item.label}}" value="{{item.index}}" />
+</t-tabs>
+
+<!-- 项目列表 -->
+  <view class="projectList">
+    <view wx:for="{{projectList}}" wx:key="index">
+      <t-row gutter="5">
+        <t-col span="5" offset="1">
+          0001
+        </t-col>
+        <t-col span="8">
+          半导体材料
+        </t-col>
+        <t-col span="3">
+          美国
+        </t-col>
+        <t-col span="4">
+          天使轮
+        </t-col>
+      </t-row>
+      <t-collapse expand-icon="true" disabled="false" theme="card">
+        <t-collapse-panel value="0" header="{{item.desc}}">
+          <t-cell title="主打产品" note="{{item.product}}"></t-cell>
+          <t-cell title="核心客户" note="{{item.custom}}"></t-cell>
+          <t-cell title="团队背景" note="{{item.team}}"></t-cell>
+          <t-cell title="账务信息" note="{{item.fina}}"></t-cell>
+          <t-cell title="应用领域" note="{{item.domain}}"></t-cell>
+        </t-collapse-panel>
+      </t-collapse>
+      <view class="projectOpt">
+        <t-row gutter="4">
+          <t-col span="5" offset="1">
+            <t-button content="预览BP" size="small" shape="round" theme="primary" />
+          </t-col>
+          <t-col span="5" offset="2">
+            <t-button content="报名路演" size="small" shape="round" theme="primary" />
+          </t-col>
+          <t-col span="5" offset="2">
+            <t-button content="预约下次路演" size="small" shape="round" theme="primary" />
+          </t-col>
+        </t-row>
+      </view>
+      <t-devider />
+    </view>
+  </view>
+</scroll-view>

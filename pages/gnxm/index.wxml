@@ -1,0 +1,51 @@
+<t-tabs defaultValue="{{0}}" space-evenly="{{false}}" bind:change="onTabsChange" bind:click="onTabsClick" theme="tag">
+  <t-tab-panel wx:for="{{8}}" wx:key="index" label="选项" value="{{index}}" />
+</t-tabs>
+
+<scroll-view  scroll-y style="width: 100%; height: 88vh;">
+<!-- 项目列表 -->
+<view class="projectList">
+    <view wx:for="{{projectList}}" wx:key="index">
+      <t-row gutter="5">
+        <t-col span="5" offset="1">
+          0001
+        </t-col>
+        <t-col span="8">
+          半导体材料
+        </t-col>
+        <t-col span="3">
+          美国
+        </t-col>
+        <t-col span="4">
+          天使轮
+        </t-col>
+      </t-row>
+      <t-collapse expand-icon="true" disabled="false" theme="card">
+        <t-collapse-panel value="0" header="{{item.desc}}">
+          <t-cell title="主打产品" note="{{item.product}}"></t-cell>
+          <t-cell title="核心客户" note="{{item.custom}}"></t-cell>
+          <t-cell title="团队背景" note="{{item.team}}"></t-cell>
+          <t-cell title="账务信息" note="{{item.fina}}"></t-cell>
+          <t-cell title="应用领域" note="{{item.domain}}"></t-cell>
+        </t-collapse-panel>
+      </t-collapse>
+      <view class="projectOpt">
+        <t-row gutter="4">
+          <t-col span="4" offset="1">
+            <t-button content="约面聊" size="small" shape="round" theme="primary" />
+          </t-col>
+          <t-col span="4" offset="2">
+            <t-button content="约线上" size="small" shape="round" theme="primary" />
+          </t-col>
+          <t-col span="4" offset="2">
+            <t-button content="关注" size="small" shape="round" theme="primary" />
+          </t-col>
+          <t-col span="4" offset="1">
+            <t-button content="我想投" size="small" shape="round" theme="primary" />
+          </t-col>
+        </t-row>
+      </view>
+      <t-devider />
+    </view>
+  </view>
+</scroll-view>

@@ -1,22 +1,22 @@
 export default [
     {
+      icon: 'video',
+      text: '路演直播',
+      url: 'pages/lyzb/index',
+    },
+    {
+      icon: 'course',
+      text: '国内项目',
+      url: 'pages/gnxm/index',
+    },
+    {
+      icon: 'user-transmit',
+      text: '需求对接',
+      url: 'pages/djxq/index',
+    },
+    {
       icon: 'home',
-      text: '首页',
-      url: 'pages/home/home',
-    },
-    {
-      icon: 'usergroup',
-      text: '分类',
-      url: 'pages/goods/category/index',
-    },
-    {
-      icon: 'usergroup',
-      text: '购物车',
-      url: 'pages/cart/index',
-    },
-    {
-      icon: 'usergroup',
-      text: '个人中心',
+      text: '我的',
       url: 'pages/usercenter/index',
     },
   ];  

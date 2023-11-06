@@ -20,15 +20,10 @@ let Radio = class Radio extends SuperComponent {
             `${prefix}-class-border`,
         ];
         this.behaviors = ['wx://form-field'];
-        this.parent = null;
         this.relations = {
             '../radio-group/radio-group': {
                 type: 'ancestor',
                 linked(parent) {
-                    this.parent = parent;
-                    if (parent.data.placement) {
-                        this.setData({ placement: parent.data.placement });
-                    }
                     if (parent.data.borderless) {
                         this.setData({ borderless: true });
                     }
@@ -40,7 +35,7 @@ let Radio = class Radio extends SuperComponent {
         };
         this.lifetimes = {
             attached() {
-                this.initStatus();
+                this.init();
             },
         };
         this.properties = Object.assign(Object.assign({}, Props), { borderless: {
@@ -60,10 +55,11 @@ let Radio = class Radio extends SuperComponent {
             slotIcon: false,
             optionLinked: false,
             iconVal: [],
+            _placement: '',
         };
         this.methods = {
             handleTap(e) {
-                if (this.data.disabled)
+                if (this.data.disabled || this.data.readonly)
                     return;
                 const { target } = e.currentTarget.dataset;
                 if (target === 'text' && this.data.contentDisabled)
@@ -71,22 +67,23 @@ let Radio = class Radio extends SuperComponent {
                 this.doChange();
             },
             doChange() {
-                const { value, checked } = this.data;
+                const { value, checked, allowUncheck } = this.data;
                 if (this.$parent) {
-                    this.$parent.updateValue(value);
+                    this.$parent.updateValue(checked && allowUncheck ? null : value);
                 }
                 else {
-                    this._trigger('change', { checked: !checked });
+                    this._trigger('change', { checked: checked && allowUncheck ? false : !checked });
                 }
             },
-            initStatus() {
-                var _a, _b;
+            init() {
+                var _a, _b, _c, _d, _e, _f;
                 const { icon } = this.data;
-                const isIdArr = Array.isArray(((_a = this.parent) === null || _a === void 0 ? void 0 : _a.icon) || icon);
+                const isIdArr = Array.isArray(((_a = this.$parent) === null || _a === void 0 ? void 0 : _a.icon) || icon);
                 this.setData({
                     customIcon: isIdArr,
                     slotIcon: icon === 'slot',
-                    iconVal: isIdArr ? ((_b = this.parent) === null || _b === void 0 ? void 0 : _b.icon) || icon : [],
+                    iconVal: isIdArr ? ((_b = this.$parent) === null || _b === void 0 ? void 0 : _b.icon) || icon : [],
+                    _placement: (_f = (_c = this.data.placement) !== null && _c !== void 0 ? _c : (_e = (_d = this.$parent) === null || _d === void 0 ? void 0 : _d.data) === null || _e === void 0 ? void 0 : _e.placement) !== null && _f !== void 0 ? _f : 'left',
                 });
             },
             setDisabled(disabled) {

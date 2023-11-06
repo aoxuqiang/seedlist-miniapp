@@ -35,9 +35,19 @@ export interface TdActionSheetProps {
         type: BooleanConstructor;
         value?: boolean;
     };
+    showOverlay: {
+        type: BooleanConstructor;
+        value?: boolean;
+    };
+    popupProps: {
+        type: ObjectConstructor;
+        value?: object;
+    };
 }
 export interface ActionSheetItem {
     label: string;
     color?: string;
     disabled?: boolean;
+    icon?: string;
+    suffixIcon?: string;
 }

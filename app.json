@@ -1,9 +1,9 @@
 {
     "pages": [
-        "pages/home/home",
-        "pages/goods/category/index",
-        "pages/usercenter/index",
-        "pages/cart/index"
+        "pages/lyzb/index",
+        "pages/gnxm/index",
+        "pages/djxq/index",
+        "pages/usercenter/index"
     ],
     "tabBar": {
         "custom": true,
@@ -13,16 +13,16 @@
         "borderStyle": "black",
         "list": [
             {
-                "pagePath": "pages/home/home",
-                "text": "1"
+                "pagePath": "pages/lyzb/index",
+                "text": "路演直播"
             },
             {
-                "pagePath": "pages/goods/category/index",
-                "text": "分类"
+                "pagePath": "pages/gnxm/index",
+                "text": "国内项目"
             },
             {
-                "pagePath": "pages/cart/index",
-                "text": "购物车"
+                "pagePath": "pages/djxq/index",
+                "text": "对接需求"
             },
             {
                 "pagePath": "pages/usercenter/index",
@@ -35,7 +35,7 @@
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#f6f6f6",
         "backgroundColor": "#f6f6f6",
-        "navigationBarTitleText": "TDesign",
+        "navigationBarTitleText": "SeedList",
         "navigationBarTextStyle": "black"
     },
     "sitemapLocation": "sitemap.json"

@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "t-tabs": "tdesign-miniprogram/tabs/tabs",
+    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
+    "t-avatar": "tdesign-miniprogram/avatar/avatar",
+    "t-collapse" : "tdesign-miniprogram/collapse/collapse",
+    "t-collapse-panel" : "tdesign-miniprogram/collapse-panel/collapse-panel",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-row": "tdesign-miniprogram/row/row",
+    "t-col": "tdesign-miniprogram/col/col",
+    "t-devider": "tdesign-miniprogram/divider/divider"
+  }
+}

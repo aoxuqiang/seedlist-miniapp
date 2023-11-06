@@ -62,32 +62,11 @@ let Slider = class Slider extends SuperComponent {
                 this.handlePropsChange(newValue);
             },
             _value(newValue) {
-                const { min, max, range } = this.properties;
-                const { maxRange } = this.data;
-                if (range) {
-                    const left = (maxRange * (newValue[0] - Number(min))) / (Number(max) - Number(min));
-                    const right = (maxRange * (Number(max) - newValue[1])) / (Number(max) - Number(min));
-                    this.setLineStyle(left, right);
-                }
-                else {
-                    this.setSingleBarWidth(newValue);
-                }
-                this.setData({
-                    isVisibleToScreenReader: true,
-                });
-                setTimeout(() => {
-                    this.setData({
-                        isVisibleToScreenReader: false,
-                    });
-                }, 2e3);
+                this.bus.on('initial', () => this.renderLine(newValue));
+                this.toggleA11yTips();
             },
             marks(val) {
-                if (this.data.initialLeft != null) {
-                    this.handleMask(val);
-                }
-                else {
-                    this.bus.on('initial', () => this.handleMask(val));
-                }
+                this.bus.on('initial', () => this.handleMark(val));
             },
         };
         this.lifetimes = {
@@ -98,11 +77,36 @@ let Slider = class Slider extends SuperComponent {
                 const { value } = this.properties;
                 if (!value)
                     this.handlePropsChange(0);
-                this.getInitialStyle();
+                this.init();
             },
         };
     }
+    toggleA11yTips() {
+        this.setData({
+            isVisibleToScreenReader: true,
+        });
+        setTimeout(() => {
+            this.setData({
+                isVisibleToScreenReader: false,
+            });
+        }, 2000);
+    }
+    renderLine(val) {
+        const { min, max, range } = this.properties;
+        const { maxRange } = this.data;
+        if (range) {
+            const left = (maxRange * (val[0] - Number(min))) / (Number(max) - Number(min));
+            const right = (maxRange * (Number(max) - val[1])) / (Number(max) - Number(min));
+            this.setLineStyle(left, right);
+        }
+        else {
+            this.setSingleBarWidth(val);
+        }
+    }
     triggerValue(value) {
+        if (this.preval === value)
+            return;
+        this.preval = value;
         this._trigger('change', {
             value: trimValue(value, this.properties),
         });
@@ -115,19 +119,19 @@ let Slider = class Slider extends SuperComponent {
             });
         };
         if (this.data.maxRange === 0) {
-            this.getInitialStyle().then(setValueAndTrigger);
+            this.init().then(setValueAndTrigger);
             return;
         }
         setValueAndTrigger();
     }
-    handleMask(marks) {
+    handleMark(marks) {
         const calcPos = (arr) => {
-            const { theme } = this.properties;
+            const { max, theme } = this.properties;
             const { blockSize, maxRange } = this.data;
             const margin = theme === 'capsule' ? blockSize / 2 : 0;
             return arr.map((item) => ({
                 val: item,
-                left: Math.round((item / 100) * maxRange) + margin,
+                left: Math.round((item / Number(max)) * maxRange) + margin,
             }));
         };
         if ((marks === null || marks === void 0 ? void 0 : marks.length) && Array.isArray(marks)) {
@@ -157,7 +161,7 @@ let Slider = class Slider extends SuperComponent {
             lineBarWidth: `${width}px`,
         });
     }
-    getInitialStyle() {
+    init() {
         return __awaiter(this, void 0, void 0, function* () {
             const line = yield getRect(this, '#sliderLine');
             const { blockSize } = this.data;
@@ -166,6 +170,8 @@ let Slider = class Slider extends SuperComponent {
             let maxRange = line.right - line.left;
             let initialLeft = line.left;
             let initialRight = line.right;
+            if (initialLeft === 0 && initialRight === 0)
+                return;
             if (theme === 'capsule') {
                 maxRange = maxRange - Number(blockSize) - 6;
                 initialLeft -= halfBlock;
@@ -181,9 +187,8 @@ let Slider = class Slider extends SuperComponent {
     }
     stepValue(value) {
         const { step, min, max } = this.properties;
-        if (Number(step) < 1 || Number(step) > Number(max) - Number(min))
-            return value;
-        const closestStep = trimSingleValue(Math.round(value / Number(step)) * Number(step), Number(min), Number(max));
+        const decimal = String(step).indexOf('.') > -1 ? String(step).length - String(step).indexOf('.') - 1 : 0;
+        const closestStep = trimSingleValue(Number((Math.round(value / Number(step)) * Number(step)).toFixed(decimal)), Number(min), Number(max));
         return closestStep;
     }
     onSingleLineTap(e) {
@@ -207,7 +212,7 @@ let Slider = class Slider extends SuperComponent {
             value = Number(max);
         }
         else {
-            value = Math.round((currentLeft / maxRange) * (Number(max) - Number(min)) + Number(min));
+            value = (currentLeft / maxRange) * (Number(max) - Number(min)) + Number(min);
         }
         return this.stepValue(value);
     }
@@ -244,6 +249,9 @@ let Slider = class Slider extends SuperComponent {
                 this.triggerValue([this.data._value[0], this.stepValue(rightValue)]);
             }
         });
+    }
+    onTouchStart(e) {
+        this.triggerEvent('dragstart', { e });
     }
     onTouchMoveLeft(e) {
         const { disabled } = this.properties;
@@ -293,7 +301,9 @@ let Slider = class Slider extends SuperComponent {
             });
         }
     }
-    onTouchEnd() { }
+    onTouchEnd(e) {
+        this.triggerEvent('dragend', { e });
+    }
 };
 Slider = __decorate([
     wxComponent()
