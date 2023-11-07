@@ -1,3 +1,11 @@
 {
-    "usingComponents": {}
+  "usingComponents": {
+    "t-textarea": "tdesign-miniprogram/textarea/textarea",
+    "t-row": "tdesign-miniprogram/row/row",
+    "t-col": "tdesign-miniprogram/col/col",
+    "t-avatar": "tdesign-miniprogram/avatar/avatar",
+    "t-avatar-group": "tdesign-miniprogram/avatar-group/avatar-group",
+    "t-fab": "tdesign-miniprogram/fab/fab",
+    "t-button": "tdesign-miniprogram/button/button"
+  }
 }

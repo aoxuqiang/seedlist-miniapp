@@ -5,9 +5,9 @@ Page({
    */
   data: {
     fabButton: {
-      icon: 'share',
-      openType: 'share'
+      icon: 'add-circle'
     },
+    image: 'https://tdesign.gtimg.com/miniprogram/images/avatar1.png'
   },
   handleClick(e) {
     console.log(e);

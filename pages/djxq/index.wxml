@@ -1,1 +1,26 @@
-<t-fab icon="add" bind:click="handleClick" aria-label="增加"></t-fab>
+<scroll-view scroll-y style="width: 100%; height: 88vh;">
+  <view wx:for="{{8}}" wx:key="index" class="item">
+    <t-row>
+      <t-col span="4">
+        <t-row>
+          <t-avatar image="{{image}}" />
+        </t-row>
+        <t-row>
+          用户姓名
+        </t-row>
+      </t-col>
+      <t-col span="19">
+        <t-textarea placeholder="这是一条需求信息" value="这是一条需求信息这是一条需求信息这是一条需求信息这是一条需求信息这是一条需求信息这是一条需求信息这是一条需求信息这是一条需求信息" disableDefaultPadding="{{true}}" autosize disabled />
+      </t-col>
+    </t-row>
+    <t-row class="opt">
+      <t-col span="5">
+        <t-button content="我有联系方式" size="small" shape="round" theme="primary" />
+      </t-col>
+      <t-col span="5" offset="6">
+        <t-button content="我有资源" size="small" shape="round" theme="primary" />
+      </t-col>
+    </t-row>
+  </view>
+</scroll-view>
+<t-fab icon="add" button-props="{{fabButton}}" bind:click="handleClick" text="发布需求" style="left:140px;bottom:100px;" />

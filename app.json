@@ -1,42 +1,42 @@
 {
-    "pages": [
-        "pages/lyzb/index",
-        "pages/gnxm/index",
-        "pages/djxq/index",
-        "pages/usercenter/index"
-    ],
-    "tabBar": {
-        "custom": true,
-        "color": "#666666",
-        "selectedColor": "#FF5F15",
-        "backgroundColor": "#ffffff",
-        "borderStyle": "black",
-        "list": [
-            {
-                "pagePath": "pages/lyzb/index",
-                "text": "路演直播"
-            },
-            {
-                "pagePath": "pages/gnxm/index",
-                "text": "国内项目"
-            },
-            {
-                "pagePath": "pages/djxq/index",
-                "text": "对接需求"
-            },
-            {
-                "pagePath": "pages/usercenter/index",
-                "text": "我的"
-            }
-        ]
-    },
-    "usingComponents": {},
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#f6f6f6",
-        "backgroundColor": "#f6f6f6",
-        "navigationBarTitleText": "SeedList",
-        "navigationBarTextStyle": "black"
-    },
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/lyzb/index",
+    "pages/gnxm/index",
+    "pages/djxq/index",
+    "pages/usercenter/index"
+  ],
+  "tabBar": {
+    "custom": true,
+    "color": "#666666",
+    "selectedColor": "#FF5F15",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/lyzb/index",
+        "text": "路演直播"
+      },
+      {
+        "pagePath": "pages/gnxm/index",
+        "text": "国内项目"
+      },
+      {
+        "pagePath": "pages/djxq/index",
+        "text": "对接需求"
+      },
+      {
+        "pagePath": "pages/usercenter/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f6f6f6",
+    "backgroundColor": "#f6f6f6",
+    "navigationBarTitleText": "SeedList",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
 }

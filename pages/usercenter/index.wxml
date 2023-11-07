@@ -1,2 +1,11 @@
-<!--pages/usercenter/index.wxml-->
-<text>pages/usercenter/index.wxml</text>
+<view>
+  <t-row>
+    <t-col>
+      <t-avatar image="{{image}}" />
+    </t-col>
+    <t-col>
+      <t-row>132113123</t-row>
+      <t-row>232131223</t-row>
+    </t-col>
+  </t-row>
+</view>
