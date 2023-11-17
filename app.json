@@ -3,7 +3,9 @@
     "pages/lyzb/index",
     "pages/gnxm/index",
     "pages/djxq/index",
-    "pages/usercenter/index"
+    "pages/usercenter/index",
+    "pages/meeting/index",
+    "pages/demand/index"
   ],
   "tabBar": {
     "custom": true,

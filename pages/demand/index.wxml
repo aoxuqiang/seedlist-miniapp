@@ -1,0 +1,7 @@
+<t-textarea t-class="external-class" label="我的需求" placeholder="请输入您的需求"  maxlength="200" disableDefaultPadding="{{true}}" indicator/>
+<t-cell title="匿名提交" bordered="{{false}}">
+  <t-switch defaultValue="{{false}}" icon="{{['check', 'close']}}" slot="note" />
+</t-cell>
+<view class="button-example">
+<t-button theme="primary" size="large" block>提交</t-button>
+</view>

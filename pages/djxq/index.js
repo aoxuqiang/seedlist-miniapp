@@ -9,8 +9,10 @@ Page({
     },
     image: 'https://tdesign.gtimg.com/miniprogram/images/avatar1.png'
   },
-  handleClick(e) {
-    console.log(e);
+  handleClick() {
+     wx.navigateTo({
+       url: '/pages/demand/index'
+     })
   },
 
   /**

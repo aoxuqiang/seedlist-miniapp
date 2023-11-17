@@ -1,11 +1,16 @@
-<view>
-  <t-row>
-    <t-col>
-      <t-avatar image="{{image}}" />
-    </t-col>
-    <t-col>
-      <t-row>132113123</t-row>
-      <t-row>232131223</t-row>
-    </t-col>
-  </t-row>
-</view>
+<t-cell title="张三" description="投资总监" hover arrow>
+  <view class="avatar" slot="left-icon">
+    <open-data type="userAvatarUrl" />
+  </view>
+</t-cell>
+<t-cell title="关注赛道" hover note="半导体" arrow />
+<t-cell title="投资案例" hover note="中微、隆基" arrow bordered="{{false}}" />
+<t-divider dashed />
+
+<t-cell title="我的会议" leftIcon="service" jump-type="navigateTo" url="/pages/meeting/index" hover arrow>
+  <t-badge count="{{3}}" slot="note" />
+</t-cell>
+<t-cell title="我的关注" leftIcon="focus" hover arrow />
+<t-cell title="我的预约" leftIcon="cooperate" hover arrow />
+<t-cell title="我的需求" leftIcon="api" hover arrow />
+<t-cell title="我的种子" leftIcon="bean" note="100" hover arrow />

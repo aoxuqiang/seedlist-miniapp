@@ -6,6 +6,11 @@
     "t-avatar": "tdesign-miniprogram/avatar/avatar",
     "t-avatar-group": "tdesign-miniprogram/avatar-group/avatar-group",
     "t-fab": "tdesign-miniprogram/fab/fab",
-    "t-button": "tdesign-miniprogram/button/button"
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-badge": "tdesign-miniprogram/badge/badge",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-switch": "tdesign-miniprogram/switch/switch",
+    "t-divider": "tdesign-miniprogram/divider/divider"
   }
 }

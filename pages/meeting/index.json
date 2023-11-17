@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+      "t-cell": "tdesign-miniprogram/cell/cell",
+      "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
+      "t-icon": "tdesign-miniprogram/icon/icon",
+      "t-switch": "tdesign-miniprogram/switch/switch",
+      "t-divider": "tdesign-miniprogram/divider/divider"
+    }
+}
